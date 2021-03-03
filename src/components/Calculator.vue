@@ -5,12 +5,12 @@
                 v-bind:key="b.id" 
                 v-bind:bValues="b"
                 v-on:handle-press="handlePress" 
-                v-bind:style="b.id === 1 ? bStyleObjectLarge:  bStyleObjectRegular">
+                v-bind:style="b.id === 17 ? bStyleObjectLarge:  bStyleObjectRegular">
       </Button>
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import Display from './Display.vue'
 import Button from './Button.vue'
 
@@ -37,103 +37,103 @@ export default {
               },
               {
                   id: 2,
-                  name: "C",
+                  name: "\u00b1",
                   isReg: true,
-                  isOp: false
+                  isOp: true
               },
               {
                   id: 3,
+                  name: "%",
+                  isReg: true,
+                  isOp: true
+              },
+              {
+                  id: 4,
                   name: "/",
                   isReg: false,
                   isOp: true
               },
               {
-                  id: 4,
+                  id: 5,
                   name: "7",
                   isReg: true,
                   isOp: false
               },
               {
-                  id: 5,
+                  id: 6,
                   name: "8",
                   isReg: true,
                   isOp: false
               },
               {
-                  id: 6,
+                  id: 7,
                   name: "9",
                   isReg: true,
                   isOp: false
               },
               {
-                  id: 7,
+                  id: 8,
                   name: "x",
                   isReg: false,
                   isOp: true
               },
               {
-                  id: 8,
+                  id: 9,
                   name: "4",
                   isReg: true,
                   isOp: false
               },
               {
-                  id: 9,
+                  id: 10,
                   name: "5",
                   isReg: true,
                   isOp: false
               },
               {
-                  id: 10,
+                  id: 11,
                   name: "6",
                   isReg: true,
                   isOp: false
               },
               {
-                  id: 11,
-                  name: "+",
-                  isReg: false,
-                  isOp: true
-              },
-              {
                   id: 12,
-                  name: "1",
-                  isReg: true,
-                  isOp: false
-              },
-              {
-                  id: 13,
-                  name: "2",
-                  isReg: true,
-                  isOp: false
-              },
-              {
-                  id: 14,
-                  name: "3",
-                  isReg: true,
-                  isOp: false
-              },
-              {
-                  id: 15,
                   name: "-",
                   isReg: false,
                   isOp: true
               },
               {
+                  id: 13,
+                  name: "1",
+                  isReg: true,
+                  isOp: false
+              },
+              {
+                  id: 14,
+                  name: "2",
+                  isReg: true,
+                  isOp: false
+              },
+              {
+                  id: 15,
+                  name: "3",
+                  isReg: true,
+                  isOp: false
+              },
+              {
                   id: 16,
+                  name: "+",
+                  isReg: false,
+                  isOp: true
+              },
+              {
+                  id: 17,
                   name: "0",
                   isReg: true,
                   isOp: false
               },
               {
-                  id: 17,
-                  name: ".",
-                  isReg: true,
-                  isOp: false
-              },
-              {
                   id: 18,
-                  name: "\u00b1",
+                  name: ".",
                   isReg: true,
                   isOp: false
               },
@@ -156,8 +156,6 @@ export default {
           switch (number){
               case "AC": this.clearAll();
                 break;
-              case "C": this.clearDisplay();
-                break;
               case "0":
               case "1":
               case "2":
@@ -169,13 +167,10 @@ export default {
               case "8":
               case "9": this.numberPressed(number);
               break; 
-              case "+": this.computeOp("+");
-                break;
-              case "-": this.computeOp("-");
-                break;
-              case "/": this.computeOp("/");
-                break;
-              case "x": this.computeOp("x");
+              case "+": 
+              case "-": 
+              case "/": 
+              case "x": this.computeOp(number);
                 break;
               case "=": this.equalPressed();
                 break;
@@ -311,11 +306,10 @@ export default {
   width: 100%;
   margin: auto;
   box-sizing: border-box;
-  border: 5px solid black;
+  border: 2px solid black;
   border-radius: 5px;
   height: 70%;
   overflow: hidden;
-  box-shadow: 5px 5px 5px #4b4b4c;
 }
 
 @media screen and (min-width: 768px){

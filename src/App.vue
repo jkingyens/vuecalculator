@@ -1,18 +1,19 @@
 <template>
   <div id="app">
-    <Calculator></Calculator>
+    <Calculator />
   </div>
 </template>
 
-<script>
-import Calculator from './components/Calculator.vue'
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+import Calculator from './components/Calculator.vue';
 
-export default {
-  name: 'app',
+@Component({
   components: {
-    Calculator
-  }
-}
+    Calculator,
+  },
+})
+export default class App extends Vue {}
 </script>
 
 <style>
@@ -22,16 +23,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 0px;
-}
-
-h1{
-  font-size: 3em;
-}
-
-img{
-  max-width: 50px;
-  max-height: 80px;
-  height: 80px;
 }
 </style>

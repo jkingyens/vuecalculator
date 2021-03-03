@@ -42,10 +42,6 @@ export default {
   width: 99.75%;
 }
 
-#blinker{
-  width: 1.00%;
-}
-
 #displayText,  #subText{
     font-family: 'Lato', sans-serif;
     text-align: right;
