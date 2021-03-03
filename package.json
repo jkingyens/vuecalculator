@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@assemblyscript/loader": "^0.18.11",
+    "@types/velocity-animate": "^2.0.1",
     "core-js": "^3.4.3",
     "velocity-animate": "^1.5.2",
     "vue": "^2.6.10",

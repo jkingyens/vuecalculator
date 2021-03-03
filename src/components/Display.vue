@@ -7,9 +7,11 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 
-export default {
+import Vue from 'vue'
+
+export default Vue.extend({
   name: 'display',
   props: {
       displayValue: String,
@@ -25,7 +27,7 @@ export default {
     }
   }
   
-}
+});
 </script>
 
 <style >

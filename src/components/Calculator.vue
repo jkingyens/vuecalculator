@@ -11,11 +11,12 @@
 </template>
 
 <script lang="ts">
+import Vue from 'vue'
 import Display from './Display.vue'
 import Button from './Button.vue'
 
-export default {
-  data: function () {
+export default Vue.extend({
+  data: function ()  {
       return {
           dispValue: "0",
           subDispValue: "",
@@ -151,7 +152,7 @@ export default {
       Button
   },
   methods: {
-      handlePress: function (event){
+      handlePress: function (event: { textContent: string }){
           var number = event.textContent.trim();
           switch (number){
               case "AC": this.clearAll();
@@ -182,7 +183,7 @@ export default {
                   alert("KEY ERROR: in default");
           }
       },
-      negateValue: function(){
+      negateValue: function(): void {
           if (this.dispValue != "0"){
               if (this.dispValue.indexOf("-") < 0){
               this.dispValue = "-" + this.dispValue;
@@ -207,7 +208,7 @@ export default {
               alert(e);
           }
       },
-      numberPressed: function(number){
+      numberPressed: function(number: string){
           this.opInEffect = false;
           if (this.dispValue === "0"){
               this.dispValue = number;
@@ -223,19 +224,7 @@ export default {
           }
           
       },
-      computePlus: function (){
-          this.dispValue = this.computeOps(this.prevValue, this.dispValue, "+")
-      },
-      computeSub: function (){
-          this.dispValue = this.computeOps(this.prevValue, this.dispValue, "-")
-      },
-      computeDiv: function (){
-          this.dispValue = this.computeOps(this.prevValue, this.dispValue, "/")
-      },
-      computeMult: function (){
-          this.dispValue = this.computeOps(this.prevValue, this.dispValue, "x")
-      },
-      computeOp: function (op){
+      computeOp: function (op: string){
           if (!this.opInEffect){
             try{
                 this.computeEqual(this.prevValue, this.dispValue, this.prevOp);
@@ -252,7 +241,7 @@ export default {
           }
           
       },
-      computeEqual: function(op1, op2, op){
+      computeEqual: function(op1: string, op2: string, op: string){
           let op1_num = parseFloat(op1);
           let op2_num = parseFloat(op2);
           let result = 0;
@@ -297,7 +286,7 @@ export default {
           this.opInEffect = false;
       }
   }
-}
+});
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

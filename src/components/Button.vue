@@ -8,10 +8,11 @@
   </div>
 </template>
 
-<script>
-import Velocity from "velocity-animate";
+<script lang="ts">
+import Vue from 'vue'
+import Velocity from "velocity-animate"
 
-export default {
+export default Vue.extend({
   name: 'vuebutton',
   props: {
       bValues: Object
@@ -34,7 +35,7 @@ export default {
       }
   }
 
-}
+});
 </script>
 
 <style>
